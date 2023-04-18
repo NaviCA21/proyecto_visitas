@@ -13,7 +13,7 @@ class VisitanteController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -21,7 +21,7 @@ class VisitanteController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

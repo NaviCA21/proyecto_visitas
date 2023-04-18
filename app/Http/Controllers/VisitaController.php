@@ -24,7 +24,7 @@ class VisitaController extends Controller
      */
     public function create()
     {
-        //
+        return view('visitas.create');
     }
 
     /**
