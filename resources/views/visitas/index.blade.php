@@ -20,16 +20,31 @@
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Asunto
+                                        Fecha
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Visitante
+                                        Entidad visitada
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Fecha Inicio
+                                        Visistante
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Acciones
+                                        Documento del visitante
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Entidad visitada 
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Funcionario visitado
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Hora ingreso
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Hora salida 
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Motivo
                                     </th>
                                 </tr>
                             </thead>
