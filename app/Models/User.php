@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function users(){
         return $this->hasMany(User::class);
     }
+
+    //relacion de muchos a uno
+    public function tipo_usuario(){
+        return $this->belongsTo(tipo_usuario::class);
+    }
 }

@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Administrador',
             'email' => 'administrador@gmail.com',
-            'password' =>  bcrypt('administrador')
+            'password' =>  bcrypt('administrador'),
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Oscar',
             'email' => 'oscar@gmail.com',
-            'password' =>  bcrypt('12345678')
+            'password' =>  bcrypt('12345678'),
         ]);
     }
 }

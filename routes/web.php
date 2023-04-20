@@ -36,3 +36,10 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('visita', VisitaController::class);
 require __DIR__.'/auth.php';
+
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['auth', 'verified'])->name('admin');
+
+// Route::resource('admin', UserController::class);
+// require __DIR__.'/auth.php';

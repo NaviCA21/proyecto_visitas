@@ -13,6 +13,12 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script src="https://kit.fontawesome.com/0ba22d2e9d.js" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-Ah7Ks+IQgz6ISLx6z45w1JNl3LnYLa6U07h6XoTnT7s0s+psLsR/+xOx1w7JHqYr6rOezBfD/cJ0YZTf2FkL+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
