@@ -40,13 +40,13 @@
                                     <input id="password-confirm" type="password" name="password_confirmation" required>
                                 </div>
 
-                                {{-- <div>
+                                <div>
                                     <label for="role">{{ __('Role') }}</label>
                                     <select id="role" name="role" required>
                                         <option value="user">{{ __('User') }}</option>
                                         <option value="admin">{{ __('Admin') }}</option>
                                     </select>
-                                </div> --}}
+                                </div>
 
                                 <div>
                                     <button type="submit">
