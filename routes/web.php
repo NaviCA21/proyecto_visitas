@@ -43,6 +43,12 @@ Route::get('/admin', function () {
 })->middleware(['auth', 'verified'])->name('admin');
 
 Route::get('/admin', [UserController::class, 'admin'])->name('admin.admin'); // como estamos creando una sola ruta tipo get y cambias el nombre
+
+Route::get('/auth/register', function () {
+    return view('auth.register');
+});
+
+
 //de la ruta no cambia en nada su "name"
 
 // Route::get('juan', [UserController::class, 'task'])->name('cristian.task');

@@ -34,7 +34,7 @@
                       <th class="py-3 px-6 text-left">Nombre del usuario</th>
                       <th class="py-3 px-6 text-left">Cargo</th>
                       <th class="py-3 px-6 text-left">Email</th>
-                      <th class="py-3 px-6 text-left">Contraceña</th>
+                      {{-- <th class="py-3 px-6 text-left">Contraceña</th> --}}
                       <th class="py-3 px-6 text-left">Tipo de usuario</th>
                       <th class="py-3 px-6 text-left">Fecha de creacion</th>
                       <th class="py-3 px-6 text-center">Acciones</th>
@@ -47,7 +47,7 @@
                             <td class="py-3 px-2 text-left">{{ $item->name}}</td>
                             <td class="py-3 px-2 text-left">{{ $item->cargo}}</td>
                             <td class="py-3 px-2 text-left">{{ $item->email}}</td>
-                            <td class="py-3 px-2 text-left">{{ $item->password}}</td>
+                            {{-- <td class="py-3 px-2 text-left">{{ $item->password}}</td> --}}
                             <td class="py-3 px-2 text-left">{{ $item->tipo_usuario->tipo_usuario}}</td>
                             <td class="py-3 px-2 text-left">{{ $item->created_at}}</td>
                             <td class="py-3 px-2 text-center">
