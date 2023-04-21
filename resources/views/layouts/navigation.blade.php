@@ -25,11 +25,13 @@
                         {{ __('Visitas') }}
                     </x-nav-link>
                 </div>
+                @if (Auth::user()->id == 2)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                    <x-nav-link :href="route('admin.admin')" :active="request()->routeIs('admin.admin')">
                         {{ __('Admin') }}
                     </x-nav-link>
                 </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

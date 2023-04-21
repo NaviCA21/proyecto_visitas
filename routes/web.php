@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitaController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,12 +35,18 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('visita', VisitaController::class);
+Route::resource('visita', VisitaController::class); //si cambias el nombre de la ruta, tambien cambie el nombre de sus "name"
 require __DIR__.'/auth.php';
 
 Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth', 'verified'])->name('admin');
 
+Route::get('/admin', [UserController::class, 'admin'])->name('admin.admin'); // como estamos creando una sola ruta tipo get y cambias el nombre
+//de la ruta no cambia en nada su "name"
+
+// Route::get('juan', [UserController::class, 'task'])->name('cristian.task');
+
 // Route::resource('admin', UserController::class);
 // require __DIR__.'/auth.php';
+

@@ -18,8 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('visitante_id')->nullable();
             $table->unsignedBigInteger('periodo_id')->nullable();
 
-            //$table->foreign('visitante_id')->references('id')->on('visitantes')->onDelete('cascade');
-            //$table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+            $table->foreign('visitante_id')->references('id')->on('visitantes')->onDelete('cascade');
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+
 
 
             $table->timestamps();

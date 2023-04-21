@@ -11,7 +11,14 @@ class UserController extends Controller
     //
     public function admin()
     {
-        return view('admin');
+        $user = User::all();
+        return view('admin', compact('user'));
+    }
+
+    //probando...
+
+    public function task(){
+        return "hola mundo!";
     }
 
     public function store(Request $request)
