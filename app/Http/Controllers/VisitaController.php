@@ -32,7 +32,13 @@ class VisitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'asunto' => 'required',
+        ]);
+
+        $visita = new Visita();
+        $visita->asunto = $request->asunto;
+        $visita->save();
     }
 
     /**
