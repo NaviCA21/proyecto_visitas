@@ -29,25 +29,27 @@ class UserController extends Controller
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'cargo' => ['required', 'string', 'max:255'],
         'password' => ['required', 'string', 'min:8', 'confirmed'],
         'tipo_usuario' => ['required', 'exists:tipo_usuarios,id']
     ]);
 
     $user = new User;
     $user->name = $request->name;
+    $user->cargo = $request->cargo;
     $user->email = $request->email;
     $user->password = Hash::make($request->password);
     $user->tipo_usuario_id = $request->tipo_usuario; // Asignar el tipo de usuario seleccionado
     $user->save();
 
-    return redirect()->route('admin')->with('success', 'User created successfully.');
+    return redirect()->route('admin.admin')->with('success', 'User created successfully.');
 }
 
 public function create()
 {
     $tipo_usuarios = Tipo_usuario::all();
-    // return view('auth.register', compact('tipo_usuarios'));
-    dd($tipo_usuarios);
+    return view('auth.register', compact('tipo_usuarios'));
+    // dd($tipo_usuarios);
 }
 
 

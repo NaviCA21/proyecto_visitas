@@ -9,7 +9,7 @@
         <div class="w-1/2 mx-auto">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register.store') }}">
                         @csrf
 
                         <!-- Name -->
@@ -21,6 +21,13 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
+                        
+                        <div class="mt-4">
+                            <x-input-label for="cargo" :value="__('Cargo')" />
+                            <x-text-input id="cargo" class="block mt-1 w-full" type="text" name="cargo"
+                                :value="old('cargo')" required autofocus autocomplete="cargo" />
+                            <x-input-error :messages="$errors->get('cargo')" class="mt-2" />
+                        </div>
 
                         <!-- Email Address -->
                         <div class="mt-4">
@@ -57,14 +64,16 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div> --}}
                         <!-- tipo de usuario -->
-                        {{-- <div class="form-group">
-                            <label for="tipo_usuario">Tipo de Usuario:</label>
-                            <select class="form-control" id="tipo_usuario" name="tipo_usuario">
+                        <div class="mt-4">
+                            <x-input-label  :value="__('Tipo de Usuario')" />
+                            <select id="tipo_usuario" name="tipo_usuario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 @foreach($tipo_usuarios as $tipo_usuario)
-                                    <option value="{{ $tipo_usuario->id }}">{{ $tipo_usuario->nombre }}</option>
+                                    <option>Seleccionar..</option>
+                                    <option value="{{ $tipo_usuario->id }}">{{ $tipo_usuario->tipo_usuario }}</option>
                                 @endforeach
                             </select>
-                        </div> --}}
+                        </div>
+
 
 
 

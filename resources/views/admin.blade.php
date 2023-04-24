@@ -14,7 +14,7 @@
                     <div class="flex items-center">
 
                         <div class="ml-auto">
-                            <a href="{{route('register')}}" class="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-800 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                            <a href="{{route('register.create')}}" class="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-800 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
                                 Crear Nuevo Usuario
                             </a>
                         </div>
