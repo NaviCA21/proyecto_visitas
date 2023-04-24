@@ -46,7 +46,9 @@ Route::get('/admin', [UserController::class, 'admin'])->name('admin.admin'); // 
 
 Route::get('/auth/register', function () {
     return view('auth.register');
-});
+})->name('register');
+
+
 
 
 //de la ruta no cambia en nada su "name"

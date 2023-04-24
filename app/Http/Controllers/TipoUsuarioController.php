@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\tipo_usuario;
+use App\Models\Tipo_usuario;
 use Illuminate\Http\Request;
 
 class TipoUsuarioController extends Controller
@@ -21,6 +20,8 @@ class TipoUsuarioController extends Controller
     public function create()
     {
         //
+        $tipo_usuarios = Tipo_usuario::all();
+        return view('tipo_usuarios.create', compact('tipo_usuarios'));
     }
 
     /**
