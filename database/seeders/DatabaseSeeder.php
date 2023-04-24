@@ -34,8 +34,16 @@ class DatabaseSeeder extends Seeder
 
         $user2 = \App\Models\User::factory()->create([
             'name' => 'Administrador',
-            'cargo' => 'Alcalde',
+            'cargo' => 'Administrador',
             'email' => 'administrador@gmail.com',
+            'password' => bcrypt('administrador'),
+            'tipo_usuario_id' => 1,
+        ]);
+
+        $user3 = \App\Models\User::factory()->create([
+            'name' => 'Javier Ponce Roque',
+            'cargo' => 'Alcalde de Puno',
+            'email' => 'javierponce@gmail.com',
             'password' => bcrypt('administrador'),
             'tipo_usuario_id' => 1,
         ]);

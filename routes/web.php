@@ -48,9 +48,10 @@ Route::get('/admin', function () {
 
 Route::get('/admin', [UserController::class, 'admin'])->name('admin.admin'); // como estamos creando una sola ruta tipo get y cambias el nombre
 
-Route::get('/auth/register', function () {
-    return view('auth.register');
-});
+Route::get('/register', [UserController::class, 'create'])->name('register.create');
+
+Route::post('register', [UserController::class, 'store'])->name('register.store');
+
 
 
 //de la ruta no cambia en nada su "name"
