@@ -59,9 +59,11 @@
 
             </div>
 
+            {{-- buscar en la tabla  --}}
+
 
             <div class="overflow-x-auto">
-                <table class="min-w-full table-auto">
+                <table id="visitas" class="min-w-full table-auto">
                   <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                       <th class="py-3 px-6 text-left">Fecha</th>
@@ -89,14 +91,15 @@
                         <td class="py-3 px-2 text-left">{{ $item->visitante->num_visitantes}}</td>
                         <td class="py-3 px-2 text-left">{{ $item->asunto}}</td>
                         <td class="py-3 px-2 text-center">
-                          <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-5">
+
+                          <a href="#" class="text-green-600 hover:text-green-900 mr-2">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                          </a>
+                          <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-2">
                             <i class="fas fa-pencil-alt"></i>
                           </a>
-                          <a href="#" class="text-red-600 hover:text-red-900 mr-5">
+                          <a href="#" class="text-red-600 hover:text-red-900 ">
                             <i class="fas fa-trash-alt"></i>
-                          </a>
-                          <a href="#" class="text-green-600 hover:text-green-900">
-                            <i class="fa-solid fa-check-to-slot"></i>
                           </a>
                         </td>
                       </tr>
