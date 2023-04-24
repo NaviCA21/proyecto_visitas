@@ -49,9 +49,13 @@
                             <td class="py-3 px-2 text-left">{{ $item->tipo_usuario->tipo_usuario}}</td>
                             <td class="py-3 px-2 text-left">{{ $item->created_at}}</td>
                             <td class="py-3 px-2 text-center">
-                              <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-5">
-                                <i class="fas fa-pencil-alt"></i>
-                              </a>
+                            <form action="#" method="POST">
+                                @csrf
+                                @method('UPDATE')
+                                <button class="text-indigo-600 hover:text-indigo-900 mr-5">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                            </form>
                               {{-- <a href="{{route('user.delete', $item->id) }}" class="text-red-600 hover:text-red-900">
                                 <i class="fas fa-trash-alt"></i>
                             </a> --}}

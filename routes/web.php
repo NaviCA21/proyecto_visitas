@@ -57,7 +57,7 @@ Route::get('visitante', [VisitanteController::class, 'index'])->middleware(['aut
 
 Route::delete('user/{user}', [UserController::class, 'delete'])->name('user.delete');
 
-
+Route::put('user/{user}', [UserController::class, 'update'])->name('user.delete');
 
 
 
