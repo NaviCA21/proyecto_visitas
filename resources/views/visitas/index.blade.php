@@ -92,8 +92,11 @@
                           <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-5">
                             <i class="fas fa-pencil-alt"></i>
                           </a>
-                          <a href="#" class="text-red-600 hover:text-red-900">
+                          <a href="#" class="text-red-600 hover:text-red-900 mr-5">
                             <i class="fas fa-trash-alt"></i>
+                          </a>
+                          <a href="#" class="text-green-600 hover:text-green-900">
+                            <i class="fa-solid fa-check-to-slot"></i>
                           </a>
                         </td>
                       </tr>
