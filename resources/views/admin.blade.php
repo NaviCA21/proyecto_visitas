@@ -52,9 +52,18 @@
                               <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-5">
                                 <i class="fas fa-pencil-alt"></i>
                               </a>
-                              <a href="#" class="text-red-600 hover:text-red-900">
+                              {{-- <a href="{{route('user.delete', $item->id) }}" class="text-red-600 hover:text-red-900">
                                 <i class="fas fa-trash-alt"></i>
-                              </a>
+                            </a> --}}
+                            <form action="{{ route('user.delete', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+
+
                             </td>
                           </tr>
                         @endforeach
