@@ -21,7 +21,7 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
-                        
+
                         <div class="mt-4">
                             <x-input-label for="cargo" :value="__('Cargo')" />
                             <x-text-input id="cargo" class="block mt-1 w-full" type="text" name="cargo"
@@ -57,18 +57,11 @@
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
 
-                        <!-- tipo de usuario -->
-                        {{-- <div class="mt-4">
-                            <x-input-label for="email" :value="__('Tipo de Usuario')" />
-                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        </div> --}}
-                        <!-- tipo de usuario -->
                         <div class="mt-4">
                             <x-input-label  :value="__('Tipo de Usuario')" />
                             <select id="tipo_usuario" name="tipo_usuario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" disabled selected>Seleccionar..</option>
                                 @foreach($tipo_usuarios as $tipo_usuario)
-                                    <option>Seleccionar..</option>
                                     <option value="{{ $tipo_usuario->id }}">{{ $tipo_usuario->tipo_usuario }}</option>
                                 @endforeach
                             </select>
@@ -81,7 +74,8 @@
 
 
                         <div class="flex items-center justify-end mt-4">
-
+                            <a href="{{ route('admin.admin') }}"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Regresar</a>
                             <x-primary-button class="ml-4">
                                 {{ __('Agregar usuario') }}
                             </x-primary-button>

@@ -51,6 +51,12 @@ public function create()
     return view('auth.register', compact('tipo_usuarios'));
     // dd($tipo_usuarios);
 }
+public function delete(User $user)
+{
+    $user->delete();
+
+    return redirect()->route('admin.admin')->with('success', 'Usuario eliminado exitosamente.');
+}
 
 
 
