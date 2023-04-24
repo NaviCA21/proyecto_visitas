@@ -6,6 +6,7 @@ use App\Models\Periodo;
 use App\Models\Visita;
 use App\Models\Visitante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class VisitaController extends Controller
 {
@@ -38,7 +39,7 @@ class VisitaController extends Controller
             'asunto' => 'required',
             'fecha' => 'required',
             'hora_inicio' => 'required',
-            'hora_salida' => 'required',
+            'hora_fin' => 'required',
             'nombre' => 'required',
             'a_paterno' => 'required',
             'a_materno' => 'required',
@@ -46,22 +47,17 @@ class VisitaController extends Controller
             'institucion' => 'required',
             'telefono' => 'required',
             'num_visitante' => 'required',
-    
         ]);
 
-        $visita = new Visita();
-        $visita->asunto = $request->asunto;
-        $visita->save();
+        $periodo = new Periodo();
+        $periodo->fecha = $request->fecha;
+        $periodo->hora_inicio = $request->hora_inicio;
+        $periodo->hora_fin = $request->hora_fin;
+
+        $periodo->save();
 
 
-        $perido = new Periodo();
-        $perido->fecha = $request->fecha;
-        $perido->hora_inicio = $request->hora_inicio;
-        $perido->hora_salida = $request->hora_salida;
-
-        $perido->save();
-
-
+        // $visitante->nombre de la bd = $request->name del formulario
         $visitante = new Visitante();
         $visitante->nombre = $request->nombre;
         $visitante->a_paterno = $request->a_paterno;
@@ -69,10 +65,20 @@ class VisitaController extends Controller
         $visitante->dni = $request->dni;
         $visitante->institucion = $request->institucion;
         $visitante->telefono = $request->telefono;
-        $visitante->num_visitante = $request->num_visitante;
+        $visitante->num_visitantes = $request->num_visitante;
 
         $visitante->save();
 
+
+
+        $visita = new Visita();
+        $visita->asunto = $request->asunto;
+        $visita->visitante_id = $visitante->id;  
+        $visita->periodo_id = $periodo->id;  
+        $visita->save();
+
+
+        return Redirect::route('visita.index');
         
 
     }

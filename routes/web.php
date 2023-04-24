@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitaController;
+use App\Http\Controllers\VisitanteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,6 @@ Route::get('/estadistica', function () {
     return view('estadistica');
 })->middleware(['auth', 'verified'])->name('estadistica');
 
-Route::get('/visitante', function () {
-    return view('visitante');
-})->middleware(['auth', 'verified'])->name('visitante');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -53,6 +51,7 @@ Route::get('/register', [UserController::class, 'create'])->name('register.creat
 Route::post('register', [UserController::class, 'store'])->name('register.store');
 
 
+Route::get('visitante', [VisitanteController::class, 'index'])->middleware(['auth', 'verified'])->name('visitante');
 
 //de la ruta no cambia en nada su "name"
 
