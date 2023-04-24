@@ -20,7 +20,7 @@ class PeriodoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +28,20 @@ class PeriodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fecha' => 'required',
+            'hora_inicio' => 'required',
+            'hora_fin' => 'required',
+
+    
+        ]);
+
+        $periodo = new Periodo();
+        $periodo->fecha = $request->fecha;
+        $periodo->hora_inicio = $request->hora_inicio;
+        $periodo->hora_fin = $request->hora_fin;
+
+        $periodo->save();
     }
 
     /**

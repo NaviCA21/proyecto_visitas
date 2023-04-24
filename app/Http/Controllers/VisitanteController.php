@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visita;
 use App\Models\Visitante;
 use Illuminate\Http\Request;
 
@@ -13,6 +12,11 @@ class VisitanteController extends Controller
      */
     public function index()
     {
+        $visitante = Visitante::all();
+
+        // dd($visita);
+
+        return view('visitante.index', compact('visitante'));
 
     }
 
@@ -21,6 +25,7 @@ class VisitanteController extends Controller
      */
     public function create()
     {
+        return view('visitante.create');
 
     }
 
@@ -29,7 +34,27 @@ class VisitanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'a_paterno' => 'required',
+            'a_materno' => 'required',
+            'dni' => 'required',
+            'institucion' => 'required',
+            'telefono' => 'required',
+            'num_visitantes' => 'required',
+
+    
+        ]);
+
+        $visitante = new Visitante();
+        $visitante->nombre = $request->nombre;
+        $visitante->a_paterno = $request->a_paterno;
+        $visitante->a_materno = $request->a_materno;
+        $visitante->dni = $request->dni;
+        $visitante->institucion = $request->institucione;
+        $visitante->num_visitantes = $request->num_visitantes;
+
+        $visitante->save();
     }
 
     /**
