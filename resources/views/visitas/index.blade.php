@@ -8,13 +8,15 @@
     <div class="py-12">
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="flex items-center">
+                      <html>
 
                     {{-- buscar --}}
-                    <div class="flex flex-row justify-between items-center w-1/2">
+                    {{-- <div class="flex flex-row justify-between items-center w-1/2">
                         <div class="flex items-center flex-grow">
                             <form class="flex w-full max-w-md space-x-5">
                                 <div class="relative flex-grow">
@@ -23,7 +25,6 @@
                                 </div>
                             </form>
                         </div>
-                        <div></div>
                     </div>
 
                     <script>
@@ -31,20 +32,21 @@
                         const searchInput = document.querySelector('input[type="text"]');
 
                         searchIcon.addEventListener('click', () => {
-                            const searchTerm = searchInput.value;
+                            const searchTerm = searchInput.value;     
                             // Aquí puedes ejecutar tu lógica de búsqueda utilizando el término de búsqueda "searchTerm"
                             console.log(searchTerm);
                         });
                     </script>
-                    <input type="date" id="filter-date" onchange="filterByDate()">
+                    
+                    <input type="date" id="visitas" onchange="filterByDate()">
 
-                    <script>
+                    {{-- <script>
                       function filterByDate() {
                         const filterDate = document.getElementById('filter-date').value;
                         // Aquí puedes ejecutar tu lógica de búsqueda utilizando la fecha "filterDate"
                         console.log(filterDate);
                       }
-                    </script>
+                    </script> --}}
 
 
 
@@ -57,7 +59,25 @@
                     </div>
 
 
-            </div>
+            </div> 
+
+            <script class="">
+                
+              $(document).ready(function() {
+                  var table = $('#visitas').DataTable( {
+                      lengthChange: false,
+                      buttons: [ 
+                          {
+                              extend: 'csv',
+                              split: [ 'pdf', 'excel'],
+                          },
+                          'colvis'
+                      ]
+                  } );
+                  table.buttons().container()
+                  .appendTo( '#visitas_wrapper .col-md-6:eq(0)' );
+              } );
+           </script>
 
             {{-- buscar en la tabla  --}}
 

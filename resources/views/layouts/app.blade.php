@@ -18,8 +18,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://kit.fontawesome.com/0ba22d2e9d.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.  5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
@@ -52,26 +53,41 @@
                 {{ $slot }}
             </main>
         </div>
-        <div class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500 leading-tight">
-            <script>
-
-                $(document).ready(function() {
-                    var table = $('#visitas').DataTable( {
-                        lengthChange: false,
-                        buttons: [ 
-                            {
-                                extend: 'csv',
-                                split: [ 'pdf', 'excel'],
-                            },
-                            'colvis'
-                        ]
+        
+        <div class="flex flex-row justify-between items-center w-1/2">
+            <div class="flex items-center flex-grow">
+                <form class="flex w-full max-w-md space-x-5">
+                    <div class="relative flex-grow">
+                        <input class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500 leading-tight" type="text" placeholder="Buscar por nombre, apellido o asunto..." style="text-indent: 0;">
+                        <span id="search-icon" class="absolute top-0 right-0 h-full w-10 text-center text-gray-600 cursor-pointer flex items-center justify-center"><i class="fas fa-search"></i></span>
+                    </div>
+                </form>
+            </div>
+            {{-- <div>
+                <script>
+                
+                    $(document).ready(function() {
+                        var table = $('#visitas').DataTable( {
+                            lengthChange: false,
+                            buttons: [ 
+                                {
+                                    extend: 'csv',
+                                    split: [ 'pdf', 'excel'],
+                                },
+                                'colvis'
+                            ]
+                        } );
+                        table.buttons().container()
+                        .appendTo( '#visitas_wrapper .col-md-6:eq(0)' );
                     } );
-                    table.buttons().container()
-                    .appendTo( '#visitas_wrapper .col-md-6:eq(0)' );
-                } );
-            </script>
-
+                </script>
+            </div> --}}
         </div>
+
+       
+           
+
+
         
     </body>
 </html>
