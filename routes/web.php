@@ -56,9 +56,8 @@ Route::get('visitante', [VisitanteController::class, 'index'])->middleware(['aut
 //de la ruta no cambia en nada su "name"
 
 Route::delete('user/{user}', [UserController::class, 'delete'])->name('user.delete');
-
-Route::put('user/{user}', [UserController::class, 'update'])->name('user.delete');
-
+Route::get('user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('user/{user}', [UserController::class, 'update'])->name('user.update');
 
 
 // Route::get('juan', [UserController::class, 'task'])->name('cristian.task');
