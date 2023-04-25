@@ -58,6 +58,41 @@ public function delete(User $user)
     return redirect()->route('admin.admin')->with('success', 'Usuario eliminado exitosamente.');
 }
 
+public function edit(User $user)
+{
+     $tipo_usuario = Tipo_usuario::all();
+     return view('auth.update', compact('user', 'tipo_usuario'));
+ }
 
+
+// public function update(Request $request, User $user)
+// {
+
+//     $user->name = $request->input('name');
+//     $user->cargo = $request->input('cargo');
+//     $user->email = $request->input('email');
+//     $user->tipo_usuario_id = $request->input('tipo_usuario_id');
+//     $user->save();
+
+//     return redirect()->route('users.index')->with('success', 'Usuario actualizado exitosamente.');
+// }
+
+public function update(request $request,$id)
+{
+    $user=User::findOrfail($id);
+    $data = $request->only('name', 'cargo', 'email', 'tipo_usuario_id');
+    if(trim($request->password)=='')
+    {
+        $data=$request->except('password');
+    }
+    else{
+        $data=$request->all();
+        $data['password']=bcrypt($request->password);
+    }
+    $user->update($data);
+    return redirect()->back();
+
+
+}
 
 }
