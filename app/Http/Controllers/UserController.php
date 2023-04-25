@@ -6,6 +6,7 @@ use App\Models\Tipo_usuario;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class UserController extends Controller
 {
@@ -77,20 +78,15 @@ public function edit(User $user)
 //     return redirect()->route('users.index')->with('success', 'Usuario actualizado exitosamente.');
 // }
 
-public function update(request $request,$id)
+public function update(request $request, User $user)
 {
-    $user=User::findOrfail($id);
+    // $user=User::findOrfail($id);
     $data = $request->only('name', 'cargo', 'email', 'tipo_usuario_id');
-    if(trim($request->password)=='')
-    {
-        $data=$request->except('password');
-    }
-    else{
-        $data=$request->all();
-        $data['password']=bcrypt($request->password);
-    }
+    $password = $request->Input('password');
+    if($password)
+        $data['password'] = bcrypt($password);
     $user->update($data);
-    return redirect()->back();
+    return redirect()->route('admin.admin');
 
 
 }
