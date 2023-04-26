@@ -66,29 +66,30 @@ public function edit(User $user)
  }
 
 
-// public function update(Request $request, User $user)
-// {
-
-//     $user->name = $request->input('name');
-//     $user->cargo = $request->input('cargo');
-//     $user->email = $request->input('email');
-//     $user->tipo_usuario_id = $request->input('tipo_usuario_id');
-//     $user->save();
-
-//     return redirect()->route('users.index')->with('success', 'Usuario actualizado exitosamente.');
-// }
-
-public function update(request $request, User $user)
+public function update(Request $request, User $user)
 {
-    // $user=User::findOrfail($id);
-    $data = $request->only('name', 'cargo', 'email', 'tipo_usuario_id');
-    $password = $request->Input('password');
-    if($password)
-        $data['password'] = bcrypt($password);
-    $user->update($data);
-    return redirect()->route('admin.admin');
 
+    $user->name = $request->name;
+    $user->cargo = $request->cargo;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+    $user->tipo_usuario_id = $request->tipo_usuario; // Asignar el tipo de usuario seleccionado
+    $user->save();
 
+    return redirect()->route('admin.admin')->with('success', 'Usuario actualizado exitosamente.');
 }
+
+// public function update(request $request, User $user)
+// {
+//     // $user=User::findOrfail($id);
+//     $data = $request->only('name', 'cargo', 'email');
+//     $password = $request->Input('password');
+//     if($password)
+//         $data['password'] = bcrypt($password);
+//     $user->tipo_usuario_id = $request->tipo_usuario_id;
+//     $user->update($data);
+//     return redirect()->route('admin.admin');
+
+// }
 
 }
