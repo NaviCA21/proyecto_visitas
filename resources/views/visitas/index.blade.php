@@ -7,7 +7,7 @@
 
     <div class="py-12">
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="w-7xl mx-auto sm:px-6 lg:px-8">
           
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -61,7 +61,7 @@
 
             </div> 
 
-            <script class="">
+            <script class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 
               $(document).ready(function() {
                   var table = $('#visitas').DataTable( {
@@ -69,7 +69,7 @@
                       buttons: [ 
                           {
                               extend: 'csv',
-                              split: [ 'pdf', 'excel'],
+                              split: [ 'p df', 'excel'],
                           },
                           'colvis'
                       ]
